@@ -1,0 +1,35 @@
+{
+  "name": "iot-healthcare",
+  "version": "1.0.0",
+  "description": "node.js lib for fitness and health tracking devices",
+  "main": "PolarH7.js",
+  "scripts": {
+    "test": "npm run-script compile && mocha --compilers js:babel/register",
+    "compile": "babel --stage 0 src --out-dir dist",
+    "prepublish": "babel --stage 0 src --out-dir dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xmlking/node-iot-healthcare.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xmlking/node-iot-healthcare/issues"
+  },
+  "keywords": [
+    "Fitness",
+    "HealthCare",
+    "Heart Rate Monitor",
+    "Polar H7"
+  ],
+  "author": "Sumanth Chinthagunta <xmlking@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4",
+    "mqtt": "latest",
+    "babel":"latest"
+  },
+  "dependencies": {
+    "noble": "latest"
+  }
+}
