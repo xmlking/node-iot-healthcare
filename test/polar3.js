@@ -1,7 +1,7 @@
-import  WICED   from  './WICED'
-import  BluetoothScanner   from  './src/BluetoothScanner'
+import  PolarRUN   from  '../PolarRUN'
+import  BluetoothScanner   from  '../src/BluetoothScanner'
 
-var bleScan = new BluetoothScanner(WICED);
+var bleScan = new BluetoothScanner(PolarRUN);
 
 bleScan.discover().then( (yourThing) => {
   // you can be notified of disconnects
@@ -15,8 +15,12 @@ bleScan.discover().then( (yourThing) => {
   });
 
   // receive data
-  yourThing.on(WICED.DATA, (data) => {
-    console.log('data', data);
+  yourThing.on(PolarRUN.SPEED, (speed) => {
+    console.log('SPEED', speed);
+  });
+
+  yourThing.on(PolarRUN.CADENCE, (cadence) => {
+    console.log('CADENCE', cadence);
   });
 
 });

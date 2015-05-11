@@ -1,5 +1,6 @@
-import  PolarH7   from  './PolarH7'
-import  BluetoothScanner   from  './src/BluetoothScanner'
+import  PolarH7   from  '../PolarH7'
+import  BluetoothScanner   from  '../src/BluetoothScanner'
+import  mqtt from 'mqtt';
 
 var client  = mqtt.connect({ host: 'localhost', port: 1883 });
 

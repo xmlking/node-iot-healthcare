@@ -36,7 +36,35 @@ export default class BluetoothScanner  extends events.EventEmitter {
       this.discoverAll(onDiscover);
     });
 
-  };
+  }
+
+  scan(deviceClasses) {
+    let devices = [];
+    let SCAN_UUIDS = deviceClasses.map((devCls) => devCls.SERVICE_UUID);
+    console.log('SCAN_UUIDS',SCAN_UUIDS);
+
+    return new Promise((resolve, reject) => {
+
+      noble.on('stateChange', function(state) {
+        if (state === 'poweredOn') {
+          noble.startScanning(SCAN_UUIDS, false);
+        } else {
+          noble.stopScanning();
+          reject('not on..');
+        }
+      });
+
+      noble.on('discover', (peripheral) => {
+        let deviceClass = deviceClasses.find(devCls => devCls.is(peripheral));
+        devices.push(new deviceClass(peripheral));
+        if(devices.length == deviceClasses.length) {
+          noble.stopScanning();
+          resolve(devices);
+        }
+      });
+
+    });
+  }
 
   discoverAll(callback) {
     this.addListener('discover', callback);

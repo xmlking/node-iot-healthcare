@@ -1,4 +1,4 @@
-//UUID: c605db72a30e4bd9903282c5ad994fae  address dd:89:22:d8:c1:cb
+//UUID: c605db72a30e4bd9903282c5ad994fae  address: dd:89:22:d8:c1:cb
 
 import  mixin from './src/mixin';
 import BluetoothDevice  from './src/BluetoothDevice';
@@ -31,10 +31,11 @@ export default class PolarRUN extends BluetoothDevice {
   }
 
   _onDataRead(data) {
-    console.log('raw',data);
+    //console.log('raw',data);
     this.emit(PolarRUN.SPEED, data[1]);
     this.emit(PolarRUN.CADENCE, data[2]);
   }
+
 }
 
 PolarRUN.SCAN_UUIDS = [PolarRUN.SERVICE_UUID];

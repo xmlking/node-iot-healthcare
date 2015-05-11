@@ -1,3 +1,5 @@
+//UUID ca67a8c081c04ce1a250d0b52f9da357 address: 00:22:d0:25:ba:b8
+
 import  mixin from './src/mixin';
 import BluetoothDevice  from './src/BluetoothDevice';
 import BatteryService from './src/BatteryService';
