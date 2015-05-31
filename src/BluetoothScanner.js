@@ -6,7 +6,7 @@ export default class BluetoothScanner {
   static discover(deviceClass : BluetoothDevice) {
     return new Promise((resolve, reject) => {
 
-      console.info('Saning for : ', deviceClass.SCAN_UUIDS, deviceClass.SCAN_DUPLICATES);
+      console.info('Scanning for : ', deviceClass.SCAN_UUIDS);
 
       noble.on('stateChange', function(state) {
         if (state === 'poweredOn') {
