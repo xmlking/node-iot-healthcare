@@ -3,6 +3,8 @@ Node-IoT-HealthCare
 
 node.js lib for fitness and health tracking devices.
 
+![Demo](./demo.gif)
+
 ###Pre-Requisites
 
 iojs v2.1.0
