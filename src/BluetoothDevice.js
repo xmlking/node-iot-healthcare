@@ -4,6 +4,8 @@ export default class BluetoothDevice extends events.EventEmitter {
 
   static GENERIC_ACCESS_UUID  = '1800';
   static DEVICE_NAME_UUID     = '2a00';
+  static SCAN_UUIDS : Array<String>;
+  static SCAN_DUPLICATES : Boolean = false;
 
   _services = {};
   _characteristics = {};

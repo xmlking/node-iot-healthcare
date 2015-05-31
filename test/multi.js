@@ -2,9 +2,7 @@ import  PolarH7   from  '../PolarH7'
 import  PolarRUN   from  '../PolarRUN'
 import  BluetoothScanner   from  '../src/BluetoothScanner'
 
-var bleScan = new BluetoothScanner(PolarH7);
-
-bleScan.scan([PolarH7,PolarRUN])
+BluetoothScanner.discoverAll([PolarH7,PolarRUN])
   .then( (things) => {
 
     var h7 = things.find(thing => thing instanceof PolarH7);

@@ -1,9 +1,9 @@
+// Traits/Mixins for class syntax
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-// Traits/Mixins for class syntax
 exports["default"] = mixin;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }

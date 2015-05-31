@@ -18,7 +18,7 @@ export default class PolarRUN extends BluetoothDevice {
   }
 
   static is(peripheral) {
-    return (peripheral.advertisement.localName === this.NAME);
+    return (peripheral.advertisement.localName === PolarRUN.NAME);
   };
 
   connectAndSetUp(callback) {

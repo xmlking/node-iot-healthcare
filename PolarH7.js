@@ -17,7 +17,7 @@ export default class PolarH7 extends BluetoothDevice {
   }
 
   static is(peripheral) {
-    return (peripheral.advertisement.localName === this.NAME);
+    return (peripheral.advertisement.localName === PolarH7.NAME);
   };
 
   connectAndSetUp(callback) {

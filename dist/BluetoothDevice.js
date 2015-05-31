@@ -6,9 +6,7 @@ Object.defineProperty(exports, '__esModule', {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { desc = parent = getter = undefined; _again = false; var object = _x,
-    property = _x2,
-    receiver = _x3; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -73,7 +71,7 @@ var BluetoothDevice = (function (_events$EventEmitter) {
   }, {
     key: 'discoverServicesAndCharacteristics',
     value: function discoverServicesAndCharacteristics(callback) {
-      var _this2 = this;
+      var _this = this;
 
       this._peripheral.discoverAllServicesAndCharacteristics(function (error, services, characteristics) {
         if (error) {
@@ -86,13 +84,13 @@ var BluetoothDevice = (function (_events$EventEmitter) {
 
           var serviceUuid = service.uuid;
 
-          _this2._services[serviceUuid] = service;
-          _this2._characteristics[serviceUuid] = {};
+          _this._services[serviceUuid] = service;
+          _this._characteristics[serviceUuid] = {};
 
           for (var j in characteristics) {
             var characteristic = characteristics[j];
 
-            _this2._characteristics[serviceUuid][characteristic.uuid] = characteristic;
+            _this._characteristics[serviceUuid][characteristic.uuid] = characteristic;
           }
         }
 
@@ -102,15 +100,15 @@ var BluetoothDevice = (function (_events$EventEmitter) {
   }, {
     key: 'connectAndSetUp',
     value: function connectAndSetUp(callback) {
-      var _this3 = this;
+      var _this2 = this;
 
       this.connect(function (error) {
         if (error) {
           return callback(error);
         }
 
-        _this3.discoverServicesAndCharacteristics(function () {
-          _this3.connectedAndSetUp = true;
+        _this2.discoverServicesAndCharacteristics(function () {
+          _this2.connectedAndSetUp = true;
           callback();
         });
       });
@@ -272,6 +270,10 @@ var BluetoothDevice = (function (_events$EventEmitter) {
   }, {
     key: 'DEVICE_NAME_UUID',
     value: '2a00',
+    enumerable: true
+  }, {
+    key: 'SCAN_DUPLICATES',
+    value: false,
     enumerable: true
   }]);
 

@@ -10,19 +10,17 @@ var serialport = new com.SerialPort('/dev/ttyAMA0',{
 serialport.on('open', function() {
   consol.log('port opened...');
 
-  var bleScan = new BluetoothScanner(PolarH7);
+  BluetoothScanner.discover(PolarH7).then((myThing) => {
 
-  bleScan.discover().then((yourThing) => {
-
-    yourThing.on('disconnect', function () {
+    myThing.on('disconnect', function () {
       console.log('we got disconnected! :( ');
     });
 
-    yourThing.connectAndSetUp(function (error) {
+    myThing.connectAndSetUp(function (error) {
       console.log('were connected!');
     });
 
-    yourThing.on(PolarH7.DATA, (heartRate) => {
+    myThing.on(PolarH7.DATA, (heartRate) => {
       console.log('heartRate', heartRate);
       serialport.write(heartRate+'\n');
     });

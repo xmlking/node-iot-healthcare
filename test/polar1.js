@@ -7,21 +7,19 @@ var client  = mqtt.connect({ host: 'localhost', port: 1883 });
 
 client.on('connect',  () => {
 
-  var bleScan = new BluetoothScanner(PolarH7);
-
-  bleScan.discover().then((yourThing) => {
+  BluetoothScanner.discover(PolarH7).then((myThing) => {
     // you can be notified of disconnects
-    yourThing.on('disconnect', function () {
+    myThing.on('disconnect', function () {
       console.log('we got disconnected! :( ');
     });
 
     // you'll need to call connect and set up
-    yourThing.connectAndSetUp(function (error) {
+    myThing.connectAndSetUp(function (error) {
       console.log('were connected!');
     });
 
     // receive data
-    yourThing.on(PolarH7.DATA, (heartRate) => {
+    myThing.on(PolarH7.DATA, (heartRate) => {
       console.log('heartRate', heartRate);
       client.publish('hrm', "" + heartRate);
     });
