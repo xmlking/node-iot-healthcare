@@ -28,7 +28,7 @@ var BluetoothScanner = (function () {
     value: function discover(deviceClass) {
       return new Promise(function (resolve, reject) {
 
-        console.info('Saning for : ', deviceClass.SCAN_UUIDS, deviceClass.SCAN_DUPLICATES);
+        console.info('Scanning for : ', deviceClass.SCAN_UUIDS);
 
         _noble2['default'].on('stateChange', function (state) {
           if (state === 'poweredOn') {

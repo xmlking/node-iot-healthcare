@@ -16,3 +16,7 @@ results
 
 npm-debug.log
 node_modules/
+
+# not ready
+CHANGELOG.md
+TODO.md

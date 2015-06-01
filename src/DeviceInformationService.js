@@ -19,30 +19,30 @@ export default class DeviceInformationService {
 
       callback(null, systemId);
     });
-  };
+  }
 
   readModelNumber(callback) {
     this.readStringCharacteristic(DeviceInformationService.DEVICE_INFORMATION_UUID, DeviceInformationService.MODEL_NUMBER_UUID, callback);
-  };
+  }
 
   readSerialNumber(callback) {
     this.readStringCharacteristic(DeviceInformationService.DEVICE_INFORMATION_UUID, DeviceInformationService.SERIAL_NUMBER_UUID, callback);
-  };
+  }
 
   readFirmwareRevision(callback) {
     this.readStringCharacteristic(DeviceInformationService.DEVICE_INFORMATION_UUID, DeviceInformationService.FIRMWARE_REVISION_UUID, callback);
-  };
+  }
 
   readHardwareRevision(callback) {
     this.readStringCharacteristic(DeviceInformationService.DEVICE_INFORMATION_UUID, DeviceInformationService.HARDWARE_REVISION_UUID, callback);
-  };
+  }
 
   readSoftwareRevision(callback) {
     this.readStringCharacteristic(DeviceInformationService.DEVICE_INFORMATION_UUID, DeviceInformationService.SOFTWARE_REVISION_UUID, callback);
-  };
+  }
 
   readManufacturerName(callback) {
     this.readStringCharacteristic(DeviceInformationService.DEVICE_INFORMATION_UUID, DeviceInformationService.MANUFACTURER_NAME_UUID, callback);
-  };
+  }
 
 }

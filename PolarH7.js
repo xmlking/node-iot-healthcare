@@ -11,6 +11,7 @@ export default class PolarH7 extends BluetoothDevice {
   static DATA = 'heartRate';
   static SERVICE_UUID = "180d";
   static NOTIFY_CHAR  = "2a37";
+  static SCAN_UUIDS : Array<String> = ["180d"];
 
   constructor(peripheral) {
     super(peripheral);
@@ -40,4 +41,4 @@ export default class PolarH7 extends BluetoothDevice {
 
 }
 
-PolarH7.SCAN_UUIDS = [PolarH7.SERVICE_UUID];
+//PolarH7.SCAN_UUIDS = [PolarH7.SERVICE_UUID];
