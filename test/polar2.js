@@ -8,7 +8,7 @@ var serialport = new com.SerialPort('/dev/ttyAMA0',{
 
 
 serialport.on('open', function() {
-  consol.log('port opened...');
+  console.log('port opened...');
 
   BluetoothScanner.discover(PolarH7).then((myThing) => {
 

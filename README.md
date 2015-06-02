@@ -10,7 +10,7 @@ node.js lib for fitness and health tracking devices.
 iojs v2.1.0
 
 ```sh
-npm install -g babel
+[sudo] npm install -g babel
 ```
 ### Setup
 ```sh
@@ -29,10 +29,12 @@ npm run test
 
 ### Run
 ```sh
+sudo su # for RaspberryPi when running with pi account
 babel-node --stage 0 -- test.js
 ```
 
 ### Debug
 ```sh
+sudo su # for RaspberryPi when running with pi account
 babel-node --debug --stage 0 -- test.js --debug
 ```

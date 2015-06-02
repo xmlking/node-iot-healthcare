@@ -24,10 +24,11 @@
   "author": "Sumanth Chinthagunta <xmlking@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^5.4.7",
     "chai": "^2.3.0",
     "mocha": "^2.2.5",
     "mqtt": "^1.2.0",
-    "babel":"^5.4.7"
+    "serialport": "^1.7.4"
   },
   "dependencies": {
     "noble": "^1.0.1"
