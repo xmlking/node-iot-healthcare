@@ -22,7 +22,7 @@ serialport.on('open', function() {
 
     myThing.on(PolarH7.DATA, (heartRate) => {
       console.log('heartRate', heartRate);
-      serialport.write(heartRate+'\n');
+      serialport.write(heartRate+'\r\n');
     });
 
   });
